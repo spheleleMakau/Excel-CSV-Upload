@@ -7,6 +7,7 @@ body {
     background-repeat: no-repeat;
 }
 
+
 .container {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
@@ -33,5 +34,29 @@ body {
 
     .btn-primary {
         width: 100%; /* Make buttons full width on smaller screens */
+    }
+}
+
+#tableContainer {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Add some space between table and other elements */
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+/* Responsive styling for small screens */
+@media only screen and (max-width: 600px) {
+    table {
+        font-size: 12px;
     }
 }
