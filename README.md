@@ -1,11 +1,11 @@
-<h1 align="center">Excel Upload</h1>
-
-<p align="center">
-  <img src="./imgs/application Screenshoot.png" alt="Application Screenshot" width="800">
-</p>
+<h1 align="center">Excel/CSV Upload</h1>
 
 <p align="center">
   A frontend application that enables users to upload CSV or Excel files and displays the content in a table format.
+</p> 
+
+<p align="center">
+  <img src="./imgs/application Screenshoot.png" alt="Application Screenshot" width="800">
 </p>
 
 ## Table of Contents
@@ -30,7 +30,7 @@ This application allows users to upload CSV or Excel files, then parses the data
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your_username/your_project.git`
+1. Clone the repository: `git clonegh repo clone spheleleMakau/Excel-CSV-Upload`
 2. Navigate to the project directory: `cd your_project`
 3. Open `index.html` in your web browser.
 
