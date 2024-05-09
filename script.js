@@ -1,3 +1,4 @@
+
 const input = document.getElementById('fileInput');
 const uploadButton = document.getElementById('uploadButton');
 const tableContainer = document.getElementById('tableContainer')
@@ -70,26 +71,40 @@ function parseExcelFile(file) {
 
 // Function to parse CSV file
 function parseCsvFile(file) {
-    // a new instance of FileReader
+    // Create a new instance of FileReader
     const reader = new FileReader();
- 
+
     // When the file is loaded successfully
     reader.onload = (e) => {
-         // Get the CSV data as a string
+        // Get the CSV data as a string
         const csvData = e.target.result;
-        
+
         // Use PapaParse to parse the CSV data
         Papa.parse(csvData, {
             complete: (result) => {
                 // Log the parsed CSV data to the console
-                console.log('CSV Data:', result);
+                console.log('Parsed CSV Data:', result);
+
+                // Extract headers from the first row of data
+                const headers = result.data[0];
+
+                // Remove headers from data
+                result.data.shift(); // This line removes the first row (headers) from the data
+
+                // Create a table with headers and data
+                const table = createTableWithData(headers, result.data);
+
+                // Append the table to the table container
+                tableContainer.innerHTML = '';
+                tableContainer.appendChild(table);
             }
         });
     };
- 
+
     // Start reading the file as text
     reader.readAsText(file);
 }
+
 
 
 // Function to create a table with headers and data
@@ -109,11 +124,23 @@ function createTableWithData(headers, data) {
     // Create data rows
     data.forEach(rowData => {
         const row = document.createElement('tr');
-        headers.forEach(header => {
-            const cell = document.createElement('td');
-            cell.textContent = rowData[header] || ''; // Use empty string if data is undefined
-            row.appendChild(cell);
-        });
+        if (Array.isArray(rowData)) {
+            // For CSV data
+            rowData.forEach(cellData => {
+                const cell = document.createElement('td');
+                cell.textContent = cellData;
+                row.appendChild(cell);
+            });
+        } else {
+            // For Excel data
+            headers.forEach(header => {
+                const cell = document.createElement('td');
+                // Check if cell data is defined for Excel data
+                const cellData = typeof rowData[header] !== 'undefined' ? rowData[header] : '';
+                cell.textContent = cellData;
+                row.appendChild(cell);
+            });
+        }
         table.appendChild(row);
     });
 
