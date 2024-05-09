@@ -30,7 +30,7 @@ This application allows users to upload CSV or Excel files, then parses the data
 
 ## Installation
 
-1. Clone the repository: `git clone gh repo clone spheleleMakau/Excel-CSV-Upload`
+1. Clone the repository: `git clone https://github.com/spheleleMakau/Excel-CSV-Upload.git`
 2. Navigate to the project directory: `cd your_project`
 3. Open `index.html` in your web browser.
 
@@ -47,4 +47,4 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 
 ## Contact
 
-For any inquiries or feedback, please contact [missmakau@gmail.com].
+For any inquiries or feedback, please contact [missmakau9@gmail.com].
